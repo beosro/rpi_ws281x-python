@@ -1,11 +1,20 @@
 language: python
 sudo: false
+cache: pip
 
 git:
   submodules: true
 
-python:
-  - "2.7"
+matrix:
+  include:
+    - python: "2.7"
+      env: TOXENV=py27
+
+addons:
+  apt:
+    packages:
+      - flake8
+      - rstcheck
 
 install:
   - pip install --ignore-installed --upgrade setuptools pip tox
