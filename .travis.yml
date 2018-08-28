@@ -12,7 +12,7 @@ install:
   - export TOOLCHAIN=$TRAVIS_BUILD_DIR/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin
   - export ARCH=arm
   - export CXX=arm-linux-gnueabihf-g++
-  - export CC=arm-linux-gnieabihf-gcc
+  - export CC=arm-linux-gnueabihf-g++
   - export PATH=$PATH:$TOOLCHAIN
   - export CCPREFIX=$TOOLCHAIN/arm-linux-gnueabihf-
   - cd library
