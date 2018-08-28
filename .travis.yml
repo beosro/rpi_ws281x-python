@@ -8,6 +8,8 @@ python:
   - "2.7"
 
 install:
-  - cd library
-  - python setup.py bdist_wheel
+  - pip install --ignore-installed --upgrade setuptools pip tox
 
+script:
+  - cd library
+  - tox -vv
