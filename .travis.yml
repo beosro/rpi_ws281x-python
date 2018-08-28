@@ -6,19 +6,18 @@ git:
 
 python:
   - "2.7"
-  - "3.4"
-  - "3.5"
-
-before_install:
-  - git clone https://github.com/raspberrypi/tools rpi-tools --depth=1
-  - export PATH=$PATH:$HOME/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin
-  - export ARCH=arm
-  - export CCPREFIX=$HOME/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin/arm-linux-gnueabihf-
-  - export CC=arm-linux-gnueabihf-gcc
 
 env:
-  - CXX=g++-4.8
+  - ARCH=arm
+  - CXX=arm-linux-gnueabihf-g++
+  - CC=arm-linux-gnieabihf-gcc
+  - TOOLCHAIN=$HOME/rpi-tools/arm-bcm2708/gcc-linaro-arm-linux-gnueabihf-raspbian-x64/bin
+  - PATH=$PATH:$TOOLCHAIN
+  - CCPREFIX=$TOOLCHAIN/arm-linux-gnueabihf-
 
 install:
+  - cd $HOME
+  - git clone https://github.com/raspberrypi/tools rpi-tools --depth=1
   - cd library
   - python setup.py bdist_wheel
+
