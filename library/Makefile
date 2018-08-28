@@ -14,7 +14,7 @@ $(BUILD)/version.h:
 	cp version.h $(BUILD)/version.h
 
 $(OBJECTS): $(BUILD)/%.o : $(SRC)/%.c
-	gcc $< -o $@ -c -g -O2 -Wall -Werror -fPIC
+	gcc $< -o $@ -c -g -O2 -Wall -Werror -Wno-pointer-to-int-cast -Wno-int-to-pointer-cast -fPIC
 
 $(BUILD)/$(LIB): $(OBJECTS)
 	ar rc $@ $^
